@@ -55,5 +55,5 @@ Troubleshooting:
   http://host.docker.internal:5001/restart
 
 Summary:
-This demo automatically detects and recovers from service failures using open-source DevOps tools.
+This automatically detects and recovers from service failures using open-source DevOps tools.
 It’s a hands-on example of self-healing systems in modern infrastructure.
