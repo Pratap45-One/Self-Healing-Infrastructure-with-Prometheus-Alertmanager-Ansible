@@ -1,4 +1,4 @@
-Self-Healing Infrastructure (Windows Demo)
+Self-Healing Infrastructure (Windows)
 
 This project shows how to automatically detect and fix service failures using:
 - Prometheus → monitors services
