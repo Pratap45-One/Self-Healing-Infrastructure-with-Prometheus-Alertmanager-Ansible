@@ -1,0 +1,23 @@
+groups:
+- name: self_heal_rules
+  rules:
+
+  - alert: NginxDown
+    expr: probe_success == 0
+    for: 30s
+    labels:
+      severity: critical
+      service: nginx
+    annotations:
+      summary: "NGINX appears down (instance={{ $labels.instance }})"
+      description: "Blackbox probe to NGINX failed for >30s."
+
+  - alert: HighCPUUsage
+    expr: 100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100) > 90
+    for: 1m
+    labels:
+      severity: critical
+      service: system
+    annotations:
+      summary: "High CPU usage detected on {{ $labels.instance }}"
+      description: "CPU usage > 90% for more than 1 minute."
